@@ -45,14 +45,17 @@ const Singup = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      {/* Title */}
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Register as a new user
         </h2>
       </div>
+      {/* Body */}
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Full Name */}
             <div>
               <label
                 htmlFor="email"
@@ -72,7 +75,7 @@ const Singup = () => {
                 />
               </div>
             </div>
-
+            {/* Email Address */}
             <div>
               <label
                 htmlFor="email"
@@ -92,7 +95,7 @@ const Singup = () => {
                 />
               </div>
             </div>
-
+            {/* Password */}
             <div>
               <label
                 htmlFor="password"
@@ -125,7 +128,7 @@ const Singup = () => {
                 )}
               </div>
             </div>
-
+            {/* Upload Avatar */}
             <div>
               <label
                 htmlFor="avatar"
@@ -159,7 +162,7 @@ const Singup = () => {
                 </label>
               </div>
             </div>
-
+            {/* Policy Pravicy */}
             <div>
               <p>
                 📋 By creating an account, you agree to PTech's{" "}
@@ -173,16 +176,16 @@ const Singup = () => {
                 .
               </p>
             </div>
-
+            {/* Button Sign Up */}
             <div>
               <button
                 type="submit"
                 className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
-                Submit
+                Sign Up
               </button>
             </div>
-
+            {/* More Info */}
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Already have an account?</h4>
               <Link
