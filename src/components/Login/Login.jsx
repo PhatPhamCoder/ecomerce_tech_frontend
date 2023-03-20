@@ -1,11 +1,37 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
+import { Link, useNavigate } from "react-router-dom";
+import { server } from "../../server";
+import axios from "axios";
+import { toast } from "react-toastify";
+
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .post(
+        `${server}/user/login-user`,
+        {
+          email,
+          password,
+        },
+        { withCredentials: true },
+      )
+      .then((res) => {
+        toast.success("Login Success");
+        navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.response.data.messsage);
+      });
+  };
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       {/* Title */}
@@ -17,7 +43,7 @@ const Login = () => {
       {/* Body */}
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             {/* Email Address */}
             <div>
               <label
@@ -29,7 +55,6 @@ const Login = () => {
               <div className="mt-1">
                 <input
                   type="email"
-                  id="email"
                   name="email"
                   autoComplete="email"
                   required
@@ -53,7 +78,6 @@ const Login = () => {
               <div className="mt-1 relative">
                 <input
                   type={visible ? "text" : "password"}
-                  id="password"
                   name="password"
                   autoComplete="current-password"
                   required
