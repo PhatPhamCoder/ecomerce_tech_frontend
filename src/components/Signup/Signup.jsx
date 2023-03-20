@@ -6,6 +6,7 @@ import { RxAvatar } from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+
 const Singup = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -32,14 +33,15 @@ const Singup = () => {
     axios
       .post(`${server}/user/create-user`, newForm, config)
       .then((res) => {
-        toast.success(res.data.message);
+        toast.success("Sign Up Successfully!");
         setName("");
         setEmail("");
         setPassword("");
         setAvatar();
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        console.log(error.response.data.message);
+        toast.error("Login Failed");
       });
   };
 
@@ -190,9 +192,9 @@ const Singup = () => {
               <h4>Already have an account?</h4>
               <Link
                 to="/login"
-                className="text-blue-600 pl-2 hover:text-blu-500 hover:underline font-bold"
+                className="text-blue-600 pl-1 hover:text-blue-500 hover:underline font-bold"
               >
-                Sign In
+                Login
               </Link>
             </div>
           </form>
