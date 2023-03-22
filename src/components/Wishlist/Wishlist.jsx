@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import styles from "../../styles/styles";
-import { IoBagCheckOutline } from "react-icons/io5";
-import { HiOutlineMinus, HiPlus } from "react-icons/hi";
+import { BsCartPlus } from "react-icons/bs";
 import { Link } from "react-router-dom";
-const Cart = ({ setOpenCart }) => {
+import { AiOutlineHeart } from "react-icons/ai";
+const Wishlist = ({ setOpenWishList }) => {
   const cartData = [
     {
       name: "Iphone 14 Pro max 256GB ssd ram silver color",
@@ -30,15 +30,15 @@ const Cart = ({ setOpenCart }) => {
             <RxCross1
               size={25}
               className="cursor-pointer"
-              onClick={() => setOpenCart(false)}
+              onClick={() => setOpenWishList(false)}
             />
           </div>
           {/* Item length */}
           <div className={`${styles.noramlFlex} p-4`}>
-            <IoBagCheckOutline size={25} />
+            <AiOutlineHeart size={25} />
             <h5 className="pl-2 text-[20px] font-[500]">3 items</h5>
           </div>
-          {/* Cart single Item */}
+          {/* Wishlist single Item */}
           <br />
           <div className="w-full border-t">
             {cartData &&
@@ -66,21 +66,7 @@ const CarSingle = ({ data }) => {
   return (
     <div className="border-b p-4">
       <div className="w-full flex items-center">
-        <div>
-          <div
-            className={`bg-[#e44343] border border-[#e4434373] rounded-full w-[25px] h-[25px] ${styles.noramlFlex} justify-center cursor-pointer`}
-            onClick={() => setValue(value + 1)}
-          >
-            <HiPlus size={18} color="#fff" />
-          </div>
-          <span className="pl-[10px] c">{value}</span>
-          <div
-            className="bg-[#a7abb14f] rounded-full w-[25px] h-[25px] flex items-center justify-center cursor-pointer"
-            onClick={() => setValue(value === 1 ? 1 : value + 1)}
-          >
-            <HiOutlineMinus size={15} color="#7d879c" />
-          </div>
-        </div>
+        <RxCross1 className="cursor-pointer" />
         <img
           src="https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png"
           className="w-[80px] h-[80px] ml-2"
@@ -88,17 +74,20 @@ const CarSingle = ({ data }) => {
         />
         <div className="pl-[5px]">
           <h1>{data.name}</h1>
-          <h4 className="font-[400] text-[15px] text-[#00000082]">
-            ${data.price}*{value}
-          </h4>
           <h4 className="font-[600] text-[17px] pt-[3px] text-[#e44343]">
             US ${totalPrice}
           </h4>
         </div>
-        <RxCross1 className="cursor-pointer" />
+        <div>
+          <BsCartPlus
+            size={20}
+            className="cursor-pointer"
+            title="Add to Cart"
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default Cart;
+export default Wishlist;

@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Fix Error
+
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+
+Command: npm config set legacy-peer-deps true
+
 ## Available Scripts
 
 In the project directory, you can run:
