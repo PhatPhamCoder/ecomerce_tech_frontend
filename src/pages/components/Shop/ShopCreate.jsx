@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import styles from "../../styles/styles";
 import { Link, useNavigate } from "react-router-dom";
-import { server } from "../../server";
 import axios from "axios";
 import { toast } from "react-toastify";
+import styles from "../../../styles/styles";
+import { server } from "../../../server";
 
-const Login = () => {
+const ShopCreate = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [address, setAddress] = useState("");
+  const [zipCode, setZipCode] = useState();
+  const [avatar, setAvarta] = useState();
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
 
@@ -25,7 +30,7 @@ const Login = () => {
         { withCredentials: true },
       )
       .then((res) => {
-        toast.success("Login Success");
+        toast.success("ShopCreate Success");
         navigate("/");
         window.location.reload(true);
       })
@@ -38,20 +43,42 @@ const Login = () => {
       {/* Title */}
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          <Link to="/">Login to your account</Link>
+          <Link to="/">Register as a Seller</Link>
         </h2>
       </div>
       {/* Body */}
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
+            {/* Shop Name */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Shop Name
+              </label>
+              <div className="mt-1">
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="appearance-none block border border-gray-300 px-3 py-2 w-full rounded-lg
+                  placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500
+                  sm:text-sm
+                  "
+                />
+              </div>
+            </div>
             {/* Email Address */}
             <div>
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-gray-700"
               >
-                Email Address
+                Shop Email
               </label>
               <div className="mt-1">
                 <input
@@ -61,6 +88,50 @@ const Login = () => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  className="appearance-none block border border-gray-300 px-3 py-2 w-full rounded-lg
+                  placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500
+                  sm:text-sm
+                  "
+                />
+              </div>
+            </div>
+            {/* Email Address */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Shop Phone Number
+              </label>
+              <div className="mt-1">
+                <input
+                  type="number"
+                  name="phone-number"
+                  required
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  className="appearance-none block border border-gray-300 px-3 py-2 w-full rounded-lg
+                  placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500
+                  sm:text-sm
+                  "
+                />
+              </div>
+            </div>
+            {/* Email Address */}
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Shop Address
+              </label>
+              <div className="mt-1">
+                <input
+                  type="text"
+                  name="address"
+                  required
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                   className="appearance-none block border border-gray-300 px-3 py-2 w-full rounded-lg
                   placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500
                   sm:text-sm
@@ -136,7 +207,7 @@ const Login = () => {
                 rounded-md text-white bg-blue-600 hover:bg-blue-700
                 "
               >
-                Login
+                ShopCreate
               </button>
             </div>
             {/* More info */}
@@ -156,4 +227,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ShopCreate;
