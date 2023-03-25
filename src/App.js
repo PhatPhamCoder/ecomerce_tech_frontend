@@ -15,6 +15,8 @@ import {
   PaymentPage,
   OrderSuccessPage,
   ShopCreatePage,
+  SellerActivationPage,
+  ShopLoginPage,
 } from "./Routes.js";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
@@ -49,6 +51,10 @@ const App = () => {
               path="/activation/:activation_token"
               element={<ActivationPage />}
             />
+            <Route
+              path="/seller/activation/:activation_token"
+              element={<SellerActivationPage />}
+            />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/product/:name" element={<ProductDetailsPage />} />
             <Route path="/best-selling" element={<BestSellingPage />} />
@@ -73,6 +79,7 @@ const App = () => {
               }
             />
             <Route path="/shop-create" element={<ShopCreatePage />} />
+            <Route path="/shop-login" element={<ShopLoginPage />} />
           </Routes>
           <ToastContainer
             position="top-right"
