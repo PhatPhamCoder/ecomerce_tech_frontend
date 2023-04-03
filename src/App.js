@@ -22,20 +22,23 @@ import "./App.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Store from "./redux/store.js";
-import { loadUser } from "./redux/actions/user.js";
+import { loadSeller, loadUser } from "./redux/actions/user.js";
 import { useSelector } from "react-redux";
 import ProtectedRoute from "./ProtectedRoute.js";
-
+import { ShopHomePage } from "./ShopRoutes.js";
+import SellerProtectedRoute from "./SellerProtectedRoute.js";
 const App = () => {
   const { loading, isAuthenticated } = useSelector((state) => state.user);
+  const { isLoading, isSeller } = useSelector((state) => state.seller);
 
   useEffect(() => {
     Store.dispatch(loadUser());
+    Store.dispatch(loadSeller());
   }, []);
 
   return (
     <>
-      {loading ? (
+      {loading || isLoading ? (
         <div class="loader">
           <div class="inner one"></div>
           <div class="inner two"></div>
@@ -80,6 +83,14 @@ const App = () => {
             />
             <Route path="/shop-create" element={<ShopCreatePage />} />
             <Route path="/shop-login" element={<ShopLoginPage />} />
+            <Route
+              path="/shop/:id"
+              element={
+                <SellerProtectedRoute isSeller={isSeller}>
+                  <ShopHomePage />
+                </SellerProtectedRoute>
+              }
+            />
           </Routes>
           <ToastContainer
             position="top-right"

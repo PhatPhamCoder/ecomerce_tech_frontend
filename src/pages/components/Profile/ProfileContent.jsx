@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { bacend_url } from "../../../server";
+import { backend_url } from "../../../server";
 import styles from "../../../styles/styles";
 import { DataGrid } from "@material-ui/data-grid";
 import { Button } from "@material-ui/core";
@@ -33,7 +33,7 @@ const ProfileContent = ({ active }) => {
           <div className="flex justify-center w-full">
             <div className="relative">
               <img
-                src={`${bacend_url}${user?.avatar}`}
+                src={`${backend_url}${user?.avatar}`}
                 alt=""
                 className="w-[150px] h-[150px] rounded-full object-cover border-[3px] border-[#3ad132]"
               />

@@ -14,7 +14,7 @@ import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { CgProfile } from "react-icons/cg";
 import { useSelector } from "react-redux";
-import { bacend_url } from "../../server";
+import { backend_url } from "../../server";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist.jsx";
 import { RxCross1 } from "react-icons/rx";
@@ -176,7 +176,7 @@ const Header = ({ activeHeading }) => {
                 {isAuthenticated ? (
                   <Link to="/profile">
                     <img
-                      src={`${bacend_url}${user.avatar}`}
+                      src={`${backend_url}${user.avatar}`}
                       alt=""
                       className="w-[30px] h-[30px] rounded-full object-cover"
                     />
@@ -302,7 +302,7 @@ const Header = ({ activeHeading }) => {
                   <div>
                     <Link to="/profile">
                       <img
-                        src={`${bacend_url}${user.avatar}`}
+                        src={`${backend_url}${user.avatar}`}
                         alt=""
                         className="rounded-full h-[60px] w-[60px] object-cover border-2 border-[#20e9c7] cursor-pointer"
                       />

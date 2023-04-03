@@ -262,10 +262,10 @@ const ShopCreate = () => {
             <div className={`${styles.noramlFlex}`}>
               <h4>Already have an account!</h4>
               <Link
-                to={"/sign-up"}
+                to={"/shop-login"}
                 className="font-bold ml-1 text-blue-600 hover:underline"
               >
-                Sign In
+                Login
               </Link>
             </div>
           </form>
