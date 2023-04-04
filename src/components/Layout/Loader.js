@@ -1,7 +1,8 @@
 import React from "react";
 import Lottie from "react-lottie";
-import animationData from "../Assets/animations/Loader.json";
-const OrderSuccessPage = () => {
+import animationData from "../../Assets/animations/Loader.json";
+
+const Loader = () => {
   const defaultOptions = {
     loop: false,
     autoplay: true,
@@ -11,13 +12,10 @@ const OrderSuccessPage = () => {
     },
   };
   return (
-    <div>
+    <div className="w-full h-screen flex items-center justify-center">
       <Lottie options={defaultOptions} width={300} height={300} />
-      <h5 className="text-center mb-14 text-[25px] text-[#000000a1]">
-        Your order is successful!
-      </h5>
     </div>
   );
 };
 
-export default OrderSuccessPage;
+export default Loader;
