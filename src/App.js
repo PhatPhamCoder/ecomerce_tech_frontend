@@ -18,7 +18,14 @@ import {
   SellerActivationPage,
   ShopLoginPage,
 } from "./routes/Routes.js";
-import { ShopHomePage, ShopDashBoardPage } from "./routes/ShopRoutes.js";
+import {
+  ShopHomePage,
+  ShopDashBoardPage,
+  ShopCreateProduct,
+  ShopAllProducts,
+  ShopCreateEvents,
+  ShopAllEvents,
+} from "./routes/ShopRoutes.js";
 import ProtectedRoute from "./routes/ProtectedRoute.js";
 import SellerProtectedRoute from "./routes/SellerProtectedRoute.js";
 import "./App.css";
@@ -84,6 +91,38 @@ const App = () => {
           element={
             <SellerProtectedRoute>
               <ShopDashBoardPage />
+            </SellerProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard-create-product"
+          element={
+            <SellerProtectedRoute>
+              <ShopCreateProduct />
+            </SellerProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard-products"
+          element={
+            <SellerProtectedRoute>
+              <ShopAllProducts />
+            </SellerProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard-create-event"
+          element={
+            <SellerProtectedRoute>
+              <ShopCreateEvents />
+            </SellerProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard-events"
+          element={
+            <SellerProtectedRoute>
+              <ShopAllEvents />
             </SellerProtectedRoute>
           }
         />

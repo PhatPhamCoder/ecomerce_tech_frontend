@@ -8,6 +8,7 @@ import { VscNewFile } from "react-icons/vsc";
 import { CiMoneyBill, CiSettings } from "react-icons/ci";
 import { BiMessageSquareDetail } from "react-icons/bi";
 import { HiOutlineReceiptRefund } from "react-icons/hi";
+
 const DashboardSiderBar = ({ active }) => {
   return (
     <div className="w-full h-[90vh] bg-white shadow-sm overflow-y-scroll preview-product sticky top-0 left-0 z-10">
@@ -77,7 +78,7 @@ const DashboardSiderBar = ({ active }) => {
       </div>
 
       <div className="w-full flex items-center p-4">
-        <Link to="/dashboard-event" className="w-full flex items-center">
+        <Link to="/dashboard-events" className="w-full flex items-center">
           <MdOutlineLocalOffer
             size={30}
             color={`${active === 5 ? "crimson" : "#555"}`}

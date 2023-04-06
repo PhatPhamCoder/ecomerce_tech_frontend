@@ -12,7 +12,7 @@ const CountDown = () => {
   });
 
   function calculateTimeLeft() {
-    const difference = +new Date("2023-03-30") - new Date();
+    const difference = +new Date("2023-04-30") - new Date();
     let timeLeft = {};
 
     if (difference > 0) {
