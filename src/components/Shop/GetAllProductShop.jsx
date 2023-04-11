@@ -10,7 +10,6 @@ import Loader from "../Layout/Loader";
 const GetAllProductShop = () => {
   const { seller } = useSelector((state) => state?.seller);
   const { products, isLoading } = useSelector((state) => state.product);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,6 +18,7 @@ const GetAllProductShop = () => {
 
   const handleDelete = (id) => {
     dispatch(deleteProduct(id));
+    dispatch(getAllProductsShop(seller?._id));
     window.location.reload();
   };
 
@@ -58,30 +58,13 @@ const GetAllProductShop = () => {
         );
       },
     },
-    // {
-    //   field: "Delete",
-    //   headerName: "",
-    //   minWidth: 120,
-    //   flex: 0.8,
-    //   type: "number",
-    //   sortable: false,
-    //   renderCell: (params) => {
-    //     return (
-    //       <>
-    //         <Button onClick={() => handleDelete(params?.id)}>
-    //           <AiOutlineDelete size={20} />
-    //         </Button>
-    //       </>
-    //     );
-    //   },
-    // },
   ];
 
   const row = [];
   products &&
     products.forEach((item) => {
       row.push({
-        id: "VN" + (item?._id).substr(item?._id?.length - 8).toUpperCase(),
+        id: item?._id,
         name: item.name,
         price: item.originalPrice + "VND",
         Stock: item.stock,
